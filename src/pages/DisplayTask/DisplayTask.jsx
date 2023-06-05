@@ -8,8 +8,8 @@ const DisplayTask = () => {
   const tasks = useLoaderData();
   const [allTasks, setAllTasks] = useState(tasks);
 
+  //for status update
   const handleStatusChange = (newStatus, taskID) => {
-    //console.log(status, taskID);
     fetch(`http://localhost:3000/tasks/${taskID}`, {
       method: "PUT",
       headers: {
@@ -22,6 +22,7 @@ const DisplayTask = () => {
       .catch((err) => console.log(err));
   };
 
+  //for delete
   const handleDelete = (taskID) => {
     fetch(`http://localhost:3000/tasks/${taskID}`, {
       method: "DELETE",
@@ -37,6 +38,7 @@ const DisplayTask = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mx-auto w-11/12">
+        {/* mapping all tasks */}
         {allTasks.map((task) => (
           <div key={task._id}>
             <div className="card w-96 bg-base-100 shadow-xl">

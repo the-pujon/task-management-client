@@ -1,7 +1,4 @@
 import React, { useContext } from "react";
-import { FaGithub } from "react-icons/fa";
-
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import login1 from "../../assets/login.gif";
 import { useForm } from "react-hook-form";
@@ -11,6 +8,7 @@ const Login = () => {
   const { signInWithEmail } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  //for react-hook-form
   const {
     register,
     handleSubmit,

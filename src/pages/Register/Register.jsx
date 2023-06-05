@@ -14,6 +14,7 @@ const Register = () => {
   const { signUpWithEmail } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  //for react-hook-form
   const {
     register,
     handleSubmit,
@@ -26,10 +27,9 @@ const Register = () => {
     const password = data.password;
     const name = data.name;
 
-    //console.log(name);
-
     signUpWithEmail(email, password)
       .then((data) => {
+        //updating name
         updateProfile(auth.currentUser, {
           displayName: name,
         })

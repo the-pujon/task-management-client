@@ -4,18 +4,21 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddTask() {
   const navigate = useNavigate();
+
+  //for react-hook-form
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
+  //for getting data from form
   const onSubmit = (data) => {
     //console.log(data);
     const title = data.title;
     const description = data.description;
     const status = data.status;
-    //console.log(task, description, status);
 
     // add task to db
     fetch("http://localhost:3000/tasks", {
@@ -34,17 +37,14 @@ export default function AddTask() {
       .catch((err) => console.error(err));
   };
 
-  //  console.log(watch("example")); // watch input value by passing the name of it
-
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <div className="w-2/3 mx-auto">
       <h1 className="text-4xl font-semibold text-center my-4">Add your task</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center "
       >
-        {/* register your input into the hook by invoking the "register" function */}
+        {/* for title */}
         <div>
           <label htmlFor="title" className="label ">
             Task Title:
@@ -57,7 +57,7 @@ export default function AddTask() {
           />
         </div>
 
-        {/* include validation with required or other standard HTML validation rules */}
+        {/* for description */}
         <div>
           <label htmlFor="desc" className="label ">
             Task Description:
@@ -73,13 +73,13 @@ export default function AddTask() {
             <div className="text-red-500">*This field is required</div>
           )}
         </div>
+
+        {/* for status */}
         <div>
           <label htmlFor="status" className="label">
             Status:{" "}
           </label>
           <select
-            //placeholder="select"
-
             name="status"
             defaultValue="status"
             className="select select-bordered w-80"

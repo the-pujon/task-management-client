@@ -7,20 +7,21 @@ export default function UpdateTask() {
   const { title, description, status } = state;
   const navigate = useNavigate();
 
+  //for react-hook-form
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
+  //for getting data from form
   const onSubmit = (data) => {
-    //console.log(data);
     const title = data.title;
     const description = data.description;
     const status = data.status;
-    //console.log(task, description, status);
 
-    // add task to db
+    // Update task to db
     fetch(`http://localhost:3000/tasks/${id}`, {
       method: "PUT",
       headers: {
@@ -43,7 +44,7 @@ export default function UpdateTask() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center "
       >
-        {/* register your input into the hook by invoking the "register" function */}
+        {/* for title */}
         <div>
           <label htmlFor="title" className="label ">
             Task Title:
@@ -57,7 +58,7 @@ export default function UpdateTask() {
           />
         </div>
 
-        {/* include validation with required or other standard HTML validation rules */}
+        {/* for description */}
         <div>
           <label htmlFor="desc" className="label ">
             Task Description:
@@ -74,6 +75,8 @@ export default function UpdateTask() {
             <div className="text-red-500">*This field is required</div>
           )}
         </div>
+
+        {/* for status */}
         <div>
           <label htmlFor="status" className="label">
             Status:{" "}

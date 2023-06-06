@@ -21,7 +21,7 @@ export default function AddTask() {
     const status = data.status;
 
     // add task to db
-    fetch("http://localhost:3000/tasks", {
+    fetch("https://backend-dusky-eight.vercel.app/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json",

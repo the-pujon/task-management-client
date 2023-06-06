@@ -3,9 +3,6 @@ import AddTask from "../pages/AddTask/AddTask";
 import DisplayTask from "../pages/DisplayTask/DisplayTask";
 import UpdateTask from "../pages/UpdateTask/UpdateTask";
 import Root from "../layout/Root";
-import Login from "../pages/Login/Login";
-import Register from "../pages/Register/Register";
-import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -14,37 +11,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <PrivateRouter>
-            <DisplayTask />
-          </PrivateRouter>
-        ),
-        loader: () => fetch("http://localhost:3000/tasks"),
+        element: <DisplayTask />,
+        loader: () => fetch("https://backend-dusky-eight.vercel.app/tasks"),
       },
       {
         path: "addTask",
-        element: (
-          <PrivateRouter>
-            <AddTask />
-          </PrivateRouter>
-        ),
+        element: <AddTask />,
       },
       {
         path: "updateTask/:id",
-        element: (
-          <PrivateRouter>
-            {" "}
-            <UpdateTask />
-          </PrivateRouter>
-        ),
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
+        element: <UpdateTask />,
       },
     ],
   },

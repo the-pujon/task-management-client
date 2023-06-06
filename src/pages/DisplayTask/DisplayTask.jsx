@@ -10,7 +10,7 @@ const DisplayTask = () => {
 
   //for status update
   const handleStatusChange = (newStatus, taskID) => {
-    fetch(`http://localhost:3000/tasks/${taskID}`, {
+    fetch(`https://backend-dusky-eight.vercel.app/tasks/${taskID}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -24,7 +24,7 @@ const DisplayTask = () => {
 
   //for delete
   const handleDelete = (taskID) => {
-    fetch(`http://localhost:3000/tasks/${taskID}`, {
+    fetch(`https://backend-dusky-eight.vercel.app/tasks/${taskID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

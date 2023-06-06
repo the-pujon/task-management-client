@@ -22,7 +22,7 @@ export default function UpdateTask() {
     const status = data.status;
 
     // Update task to db
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://backend-dusky-eight.vercel.app/tasks/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

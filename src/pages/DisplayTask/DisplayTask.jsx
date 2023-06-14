@@ -36,7 +36,7 @@ const DisplayTask = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center my-20 md:my-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:mx-auto md:w-11/12">
         {/* mapping all tasks */}
         {allTasks.map((task) => (

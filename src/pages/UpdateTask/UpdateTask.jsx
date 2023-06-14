@@ -38,12 +38,14 @@ export default function UpdateTask() {
   };
 
   return (
-    <div className="w-2/3 mx-auto">
-      <h1 className="text-4xl font-semibold text-center my-4">Add your task</h1>
+    <div className="flex items-center justify-center flex-col h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col justify-center items-center "
+        className="flex flex-col justify-center items-center card shadow-2xl p-12 mt-4"
       >
+        <h1 className="text-4xl font-semibold text-center my-4">
+          Add your task
+        </h1>
         {/* for title */}
         <div>
           <label htmlFor="title" className="label ">
@@ -87,8 +89,8 @@ export default function UpdateTask() {
             className="select select-bordered w-80"
             {...register("status")}
           >
-            <option value="done">done</option>
-            <option value="ongoing">ongoing</option>
+            <option value="done">Done</option>
+            <option value="ongoing">Ongoing</option>
           </select>
         </div>
 

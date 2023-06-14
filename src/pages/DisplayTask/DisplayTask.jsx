@@ -36,12 +36,12 @@ const DisplayTask = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen flex items-center justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mx-auto w-11/12">
         {/* mapping all tasks */}
         {allTasks.map((task) => (
           <div key={task._id}>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-2xl">
               <div className="card-body">
                 <h2 className="card-title">Title: {task.title}</h2>
                 <p>Description: {task.description}</p>
@@ -55,8 +55,8 @@ const DisplayTask = () => {
                     name="status"
                     className="select select-bordered w-32 select-xs"
                   >
-                    <option value="done">done</option>
-                    <option value="ongoing">ongoing</option>
+                    <option value="done">Done</option>
+                    <option value="ongoing">Ongoing</option>
                   </select>
                 </p>
                 <div className="card-actions justify-end">

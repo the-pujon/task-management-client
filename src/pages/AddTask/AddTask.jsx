@@ -38,67 +38,71 @@ export default function AddTask() {
   };
 
   return (
-    <div className="w-2/3 mx-auto">
-      <h1 className="text-4xl font-semibold text-center my-4">Add your task</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col justify-center items-center "
-      >
-        {/* for title */}
-        <div>
-          <label htmlFor="title" className="label ">
-            Task Title:
-          </label>
+    <div>
+      <div className=" h-screen flex items-center justify-center flex-col ">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col justify-center items-center card shadow-2xl p-12 mt-4"
+        >
+          <h1 className="text-4xl font-semibold text-center my-5 ">
+            Add your task
+          </h1>
+          {/* for title */}
+          <div>
+            <label htmlFor="title" className="label ">
+              Task Title:
+            </label>
+            <input
+              className="input input-bordered w-96 max-w-xs"
+              placeholder="title"
+              name="title"
+              {...register("title")}
+            />
+          </div>
+
+          {/* for description */}
+          <div>
+            <label htmlFor="desc" className="label ">
+              Task Description:
+            </label>
+            <input
+              className="input input-bordered w-96 max-w-xs"
+              placeholder="description"
+              name="desc"
+              {...register("description", { required: true })}
+            />
+            {/* errors will return when field validation fails  */}
+            {errors.description && (
+              <div className="text-red-500">*This field is required</div>
+            )}
+          </div>
+
+          {/* for status */}
+          <div>
+            <label htmlFor="status" className="label">
+              Status:{" "}
+            </label>
+            <select
+              name="status"
+              defaultValue="status"
+              className="select select-bordered w-80"
+              {...register("status")}
+            >
+              <option value="status" disabled>
+                Status
+              </option>
+              <option value="done">done</option>
+              <option value="ongoing">ongoing</option>
+            </select>
+          </div>
+
           <input
-            className="input input-bordered w-96 max-w-xs"
-            placeholder="title"
-            name="title"
-            {...register("title")}
+            type="submit"
+            className="btn btn-outline mt-3"
+            value="add task"
           />
-        </div>
-
-        {/* for description */}
-        <div>
-          <label htmlFor="desc" className="label ">
-            Task Description:
-          </label>
-          <input
-            className="input input-bordered w-96 max-w-xs"
-            placeholder="description"
-            name="desc"
-            {...register("description", { required: true })}
-          />
-          {/* errors will return when field validation fails  */}
-          {errors.description && (
-            <div className="text-red-500">*This field is required</div>
-          )}
-        </div>
-
-        {/* for status */}
-        <div>
-          <label htmlFor="status" className="label">
-            Status:{" "}
-          </label>
-          <select
-            name="status"
-            defaultValue="status"
-            className="select select-bordered w-80"
-            {...register("status")}
-          >
-            <option value="status" disabled>
-              Status
-            </option>
-            <option value="done">done</option>
-            <option value="ongoing">ongoing</option>
-          </select>
-        </div>
-
-        <input
-          type="submit"
-          className="btn btn-outline mt-3"
-          value="add task"
-        />
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
